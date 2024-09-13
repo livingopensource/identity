@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-ui
+spec:
+  selector:
+    matchLabels:
+      app: swiftcloud
+      component: identity-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: swiftcloud
+        component: identity-ui
+    spec:
+      imagePullSecrets:
+        - name: app-registry
+      containers:
+        - name: identity-ui
+          imagePullPolicy: IfNotPresent
+          image: containers.osystems.africa/swiftcloud/auth-ui:v0.0.1
+          volumeMounts:
+            - mountPath: "/app/.env"
+              subPath: .env
+              name: identity-ui-volume
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1000m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+      volumes:
+        - name: identity-ui-volume
+          configMap:
+            name: identity-ui-config
