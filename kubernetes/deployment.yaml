@@ -19,7 +19,7 @@ spec:
       containers:
         - name: identity-ui
           imagePullPolicy: IfNotPresent
-          image: containers.osystems.africa/swiftcloud/auth-ui:v0.0.2-dev
+          image: containers.osystems.africa/swiftcloud/auth-ui:v0.0.3-dev
           volumeMounts:
             - mountPath: "/app/.env"
               subPath: .env

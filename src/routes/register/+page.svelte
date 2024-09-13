@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>SwiftCloud Indentity Platform</title>
+	<title>SwiftCloud Identity Platform</title>
 	<meta name="description" content="SwiftCloud Identity" />
 </svelte:head>
 
