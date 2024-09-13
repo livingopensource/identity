@@ -17,7 +17,7 @@ export async function load({url, request}) {
     if (response.status != 200) {
       const data = await response.json()
       console.log(data)
-      return {id: flow, kratos: data} 
+      return {id: flow, kratos: data, auth_url: `${authURL}/self-service/login/browser`} 
     }
     const resp = await response.json()
     let csrfToken;

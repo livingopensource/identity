@@ -69,7 +69,7 @@
                     <br />
                 </form>
             {:else}
-                <InlineNotification style="cursor: pointer;" on:click={() => location.href="/"} lowContrast hideCloseButton kind="error" title="Something went wrong" subtitle="Please tap here to refresh this page, {serverFlow.kratos.error.message}" />
+                <InlineNotification style="cursor: pointer;" on:click={() => location.href=serverFlow?.auth_url || '/'} lowContrast hideCloseButton kind="error" title="Something went wrong" subtitle="Please tap here to refresh this page, {serverFlow.kratos.error.message}" />
             {/if}
         {:catch err}
             <InlineNotification kind="error" lowContrast hideCloseButton title="{err.message}" />

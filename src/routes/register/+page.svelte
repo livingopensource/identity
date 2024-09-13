@@ -17,7 +17,6 @@
 
     /** @type {import('./$types').PageData} */
 	export let data;
-    console.log(data);
 </script>
 
 <svelte:head>
@@ -75,7 +74,7 @@
                             <br />
                         </form>
                     {:else}
-                        <InlineNotification style="cursor: pointer;" on:click={() => location.href="/register"} lowContrast hideCloseButton kind="error" title="Something went wrong" subtitle="Please tap here to refresh this page, {serverFlow.kratos.error.message}" />
+                        <InlineNotification style="cursor: pointer;" on:click={() => location.href=serverFlow?.auth_url || '/register'} lowContrast hideCloseButton kind="error" title="Something went wrong" subtitle="Please tap here to refresh this page, {serverFlow.kratos.error.message}" />
                     {/if}
                 {:catch err}
                 <InlineNotification kind="error" lowContrast hideCloseButton title="{err.message}" />
